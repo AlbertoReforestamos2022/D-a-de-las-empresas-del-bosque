@@ -7,7 +7,7 @@ export default function Edit({ attributes, setAttributes}) {
     const blockProps = useBlockProps({ 
         className: 'hero-section d-flex align-items-center justify-content-center text-center',
         style: {
-            backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), url(${imagenFondo}))`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5)), url(${imagenFondo})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight: '80vh'

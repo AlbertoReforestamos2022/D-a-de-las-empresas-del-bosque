@@ -1,5 +1,10 @@
-import './src/edit';
-import './src/save';
-import './block.json';
+import { registerBlockType } from '@wordpress/blocks'; 
+import  Edit from './edit';
+import  Save from './save'; 
+import '../hero/style.scss';
+import metadata from './block.json';
 
-import './src/style.scss';
+registerBlockType(metadata.name, {
+    edit: Edit,
+    save: Save,
+});

@@ -1,0 +1,11 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/sobrenostros",
+  "title": "Sobre Nosotros DEB",
+  "category": "deb-theme",
+  "icon": "text",
+  "description": "Sección Sobre Nosotros",
+  "attributes": {
+
+  }
+}

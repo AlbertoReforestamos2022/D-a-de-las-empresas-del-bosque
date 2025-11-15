@@ -1,8 +1,8 @@
 {
-  "apiVersion": 3,
+  "apiVersion": 2,
   "name": "diadelasempresasdelbosque/hero",
-  "title": "Hero Empresas del Bosque Theme",
-  "category": "layout",
+  "title": "Hero DEB",
+  "category": "deb-theme",
   "icon": "cover-image",
   "description": "Sección hero con fondo, título y texto editables.",
   "attributes": {
@@ -20,8 +20,5 @@
       "type": "string",
       "default": "https://fastly.picsum.photos/id/28/4928/3264.jpg"
     }
-  },
-  "editorScript": "file:../../build/index.js",
-  "editorStyle" : "file:../../build/style-index.css",
-  "style": "file:../../build/style-index.css"
+  }
 }
