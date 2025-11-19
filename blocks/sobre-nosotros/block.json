@@ -6,6 +6,15 @@
   "icon": "text",
   "description": "Sección Sobre Nosotros",
   "attributes": {
-
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h1"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    }
   }
 }
