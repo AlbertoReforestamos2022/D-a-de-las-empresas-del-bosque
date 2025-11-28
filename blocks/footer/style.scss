@@ -1,0 +1,13 @@
+.text-primary-custom {
+    color: var(--primary-color, #14b814) !important;
+}
+
+footer {
+    a {
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--primary-color, #14b814) !important;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/faq",
+  "title": "FAQ DEB",
+  "category": "deb-theme",
+  "icon": "editor-help",
+  "description": "Preguntas frecuentes con acordeón",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Preguntas frecuentes"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".lead",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    "preguntas": {
+      "type": "array",
+      "default": [
+        {
+          "pregunta": "¿Pregunta 1?",
+          "respuesta": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        },
+        {
+          "pregunta": "¿Pregunta 2?",
+          "respuesta": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+          "pregunta": "¿Pregunta 3?",
+          "respuesta": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        }
+      ]
+    }
+  }
+}

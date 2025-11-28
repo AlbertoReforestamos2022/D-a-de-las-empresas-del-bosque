@@ -1,0 +1,25 @@
+.carrusel-docs-caption {
+    position: static;
+    padding: 1rem 0;
+}
+
+.carrusel-docs-indicators {
+    position: static;
+    margin: 0;
+}
+
+.iframe-documento {
+    background-color: #f8f9fa;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color, #14b814);
+    border-color: var(--primary-color, #14b814);
+    color: white;
+
+    &:hover {
+        background-color: #119e11;
+        border-color: #119e11;
+        opacity: 0.9;
+    }
+}

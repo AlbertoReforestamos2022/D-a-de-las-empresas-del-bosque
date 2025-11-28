@@ -1,0 +1,32 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/cards-img",
+  "title": "Cards imágenes DEB",
+  "category": "deb-theme",
+  "icon": "grid-view",
+  "description": "Grid de logos de aliados/sponsors",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Nuestros Aliados"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".lead",
+      "default": "Empresas que confían en nosotros"
+    },
+    "logos": {
+      "type": "array",
+      "default": [
+        { "url": "", "alt": "", "link": "" }
+      ]
+    },
+    "columnas": {
+      "type": "number",
+      "default": 4
+    }
+  }
+}

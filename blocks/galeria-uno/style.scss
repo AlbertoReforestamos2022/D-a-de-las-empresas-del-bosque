@@ -1,0 +1,32 @@
+/* Marquee Animation */
+@keyframes marquee {
+    0% { 
+        transform: translateX(0%); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
+}
+
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.card-custom {
+    transition: transform 0.3s ease;
+    border: 1px solid #dee2e6;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}

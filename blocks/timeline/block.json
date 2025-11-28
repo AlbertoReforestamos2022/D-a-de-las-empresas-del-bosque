@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/timeline",
+  "title": "Timeline DEB",
+  "category": "deb-theme",
+  "icon": "calendar-alt",
+  "description": "Línea del tiempo de ediciones",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".lead"
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        { "year": "2018", "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", "image": "" },
+        { "year": "2019", "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", "image": "" },
+        { "year": "2020", "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", "image": "" },
+        { "year": "2021", "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", "image": "" }
+      ]
+    }
+  }
+}

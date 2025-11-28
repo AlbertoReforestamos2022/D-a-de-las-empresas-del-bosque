@@ -1,0 +1,30 @@
+/* FAQ / Accordion Styles */
+details {
+    summary {
+        list-style: none;
+        cursor: pointer;
+        user-select: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    .material-symbols-outlined {
+        transition: transform 0.3s ease;
+    }
+
+    &[open] .material-symbols-outlined {
+        transform: rotate(180deg);
+    }
+}
+
+.card-custom {
+    transition: transform 0.3s ease;
+    border: 1px solid #dee2e6;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}

@@ -1,20 +1,9 @@
-/*
-    Theme Name: Día de las Empresas del Bosque
-    Author: Reforestamos México
-    Version: 1.0
-    Description: Landing page de Día de las Empresas del Bosque
-
-*/
-
 /* Navbar sticky con backdrop blur */
 .navbar-custom {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     background-color: rgba(246, 248, 246, 0.8) !important;
     transition: background-color 0.3s ease;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .navbar-custom.scrolled {

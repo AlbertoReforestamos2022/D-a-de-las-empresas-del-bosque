@@ -1,0 +1,32 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/carousel",
+  "title": "Carrusel de Imágenes DEB",
+  "category": "deb-theme",
+  "icon": "images-alt",
+  "description": "Carrusel de Bootstrap con imágenes",
+  "attributes": {
+    "imagenes": {
+      "type": "array",
+      "default": [
+        { "url": "", "alt": "", "caption": "" }
+      ]
+    },
+    "showControls": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIndicators": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "interval": {
+      "type": "number",
+      "default": 5000
+    }
+  }
+}

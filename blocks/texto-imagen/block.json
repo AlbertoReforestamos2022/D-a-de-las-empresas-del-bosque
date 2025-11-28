@@ -1,0 +1,44 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/texto-imagen",
+  "title": "Texto + Imagen DEB",
+  "category": "deb-theme",
+  "icon": "align-pull-left",
+  "description": "Sección de 2 columnas con texto e imagen",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "contenido": {
+      "type": "string",
+      "source": "html",
+      "selector": ".contenido-texto"
+    },
+    "imagen": {
+      "type": "string",
+      "default": ""
+    },
+    "imagenAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imagenPosicion": {
+      "type": "string",
+      "default": "right"
+    },
+    "showButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Saber más"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  }
+}

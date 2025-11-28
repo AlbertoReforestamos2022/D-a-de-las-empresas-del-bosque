@@ -1,0 +1,52 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/documentos",
+  "title": "Documentos de Interés DEB",
+  "category": "deb-theme",
+  "icon": "media-document",
+  "description": "Sección de documentos, videos y capacitaciones",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Documentos de interés"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".subtitle-text",
+      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    },
+    "documentos": {
+      "type": "array",
+      "default": [
+        {
+          "url": "",
+          "titulo": "Documento 1",
+          "tipo": "pdf"
+        }
+      ]
+    },
+    "videosTexto": {
+      "type": "string",
+      "source": "html",
+      "selector": ".videos-text",
+      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    },
+    "videosLink": {
+      "type": "string",
+      "default": "#"
+    },
+    "capacitacionesTexto": {
+      "type": "string",
+      "source": "html",
+      "selector": ".capacitaciones-text",
+      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    },
+    "capacitacionesLink": {
+      "type": "string",
+      "default": "#"
+    }
+  }
+}

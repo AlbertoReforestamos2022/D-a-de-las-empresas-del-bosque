@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/footer",
+  "title": "Footer DEB",
+  "category": "deb-theme",
+  "icon": "admin-page",
+  "description": "Footer personalizado editable",
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "default": "Día de las Empresas del Bosque"
+    },
+    "showLogo": {
+      "type": "boolean",
+      "default": true
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "© 2024 Día de las Empresas del Bosque. All rights reserved."
+    },
+    "footerLinks": {
+      "type": "array",
+      "default": [
+        { "label": "Privacy Policy", "url": "#" },
+        { "label": "Terms of Service", "url": "#" }
+      ]
+    }
+  }
+}

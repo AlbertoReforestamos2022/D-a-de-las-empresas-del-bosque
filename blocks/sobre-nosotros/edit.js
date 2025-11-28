@@ -1,5 +1,6 @@
-import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor"; 
-import { PanelBody, Button, Placeholder } from "@wordpress/components"; 
+import { __ } from '@wordpress/i18n';
+import { useBlockProps, RichText, InspectorControls, ColorPalette } from "@wordpress/block-editor"; 
+import { PanelBody, Button, Placeholder, TextControl } from "@wordpress/components"; 
 
 export default function Edit({ attributes, setAttributes }){
     const { titulo, descripcion } = attributes; 
@@ -10,8 +11,54 @@ export default function Edit({ attributes, setAttributes }){
 
     }); 
 
+    const onChangeBGColor = ( hexColor ) => {
+        setAttributes( {bg_color: hexColor } );
+    }; 
+
+    const onChangeTextColor = ( hexColor ) => {
+        setAttributes( {text_color: hexColor} ) ;
+    }; 
+
     return(
         <>
+            {/** Agregar opcion fondo de sección */}
+            <InspectorControls key="setting">
+                <div>
+                    <fieldset>
+                        <legend className="blocks-base-control__label">
+                            { __('Background color', 'block-development-examples') }
+                        </legend>
+                        
+                        <ColorPalette
+                            onChange={ onChangeBGColor }
+                        />
+                    </fieldset>
+
+                    <fieldset>
+                        <legend className="blocks-base-control__label">
+                            { __('Text color', 'block-development-examples') }
+                        </legend>
+
+                        <ColorPalette
+                            onChange={ onChangeTextColor }
+                        />
+                    </fieldset>
+                </div>
+            </InspectorControls>
+            <TextControl
+                __nextHasNoMarginBottom
+                __next40pxDefaultSize
+                value={ attributes.message }
+                onChange={ ( val ) => setAttributes( { message: val } ) }
+
+                style={
+                    {
+                        backgroundColor: attributes.bg_color,
+                        color: attributes.text_color,
+                    }
+                }
+            />
+
             <section { ...blockProps}>
                 <div className="container">
                     <div className="row justify-content-center">

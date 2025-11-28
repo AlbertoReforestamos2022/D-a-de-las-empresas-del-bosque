@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "diadelasempresasdelbosque/sobrenostros",
+  "name": "diadelasempresasdelbosque/sobre-nosotros",
   "title": "Sobre Nosotros DEB",
   "category": "deb-theme",
   "icon": "text",
@@ -9,12 +9,20 @@
     "titulo": {
       "type": "string",
       "source": "html",
-      "selector": "h1"
+      "selector": "h2"
     },
     "descripcion": {
       "type": "string",
       "source": "html",
       "selector": "p"
+    }, 
+    "bg-color": {
+      "type": "string",
+      "default": "#ffffff"
+    }, 
+    "text-color": {
+      "type": "string",
+      "default": "#000000"
     }
   }
 }

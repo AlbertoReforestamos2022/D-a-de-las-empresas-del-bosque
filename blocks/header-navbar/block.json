@@ -1,0 +1,36 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/header-navbar",
+  "title": "Header Navbar DEB",
+  "category": "deb-theme",
+  "icon": "menu",
+  "description": "Navbar personalizado con Bootstrap",
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "default": "Día de las Empresas del Bosque"
+    },
+    "menuItems": {
+      "type": "array",
+      "default": [
+        { "label": "Sobre Día de las Empresas del Bosque", "url": "#about" },
+        { "label": "Todas las ediciones", "url": "#timeline" },
+        { "label": "Documentos de interés", "url": "#documents" },
+        { "label": "Galería", "url": "#events" },
+        { "label": "FAQ", "url": "#faq" }
+      ]
+    },
+    "showButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Get Started"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  }
+}
