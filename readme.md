@@ -5,19 +5,19 @@
     <li>
         2. Iniciar el proyecto con 
         <ul>
-            <li>### node init <li>
+            <li>node init <li>
         </ul>
     </li>
     <li>
         3. Instalar las dependencias de node con
         <ul>
-            <li>### node install<li>
+            <li>node install<li>
         </ul>        
     </li>
     <li>
         4. Instalar Wordpress Scripts
         <ul>
-            <li>## npm install @wordpress/script --save-dev <li>
+            <li>npm install @wordpress/script --save-dev <li>
         </ul>          
     </li>
 </ul>
