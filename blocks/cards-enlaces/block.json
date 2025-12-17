@@ -1,0 +1,108 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/cards-enlaces",
+  "title": "Cards con Enlaces DEB",
+  "category": "deb-theme",
+  "icon": "grid-view",
+  "description": "Cards con imagen, título y enlace",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Nuestras Iniciativas"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".section-description",
+      "default": "Descripción de la sección"
+    },
+    "cards": {
+      "type": "array",
+      "default": [
+        {
+          "imagen": "",
+          "tituloCard": "Titulo card",
+          "descripcionCard": "Descripcion card",
+          "showDescripcion": true,
+          "textoBoton": "Saber más",
+          "enlace": "#",
+          "showButton": true
+        }
+      ]
+    },
+    "columnas": {
+      "type": "number",
+      "default": 3
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descripcionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "cardTextColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "cardDescripcionoColor": {
+      "type": "string",
+      "default": "#333333"
+    },    
+    "buttonBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 40
+    },
+    "descripcionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "cardTitleFontSize": {
+      "type": "number",
+      "default": 20
+    },
+    "cardDescripcionFontSize": {
+      "type": "number",
+      "default": 20
+    },    
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "cardWidth": {
+      "type": "number",
+      "default": 50
+    },
+    "cardHeight": {
+      "type": "number",
+      "default": 1000
+    },    
+    "imageHeight": {
+      "type": "number",
+      "default": 200
+    },
+    "abrirEnNuevaVentana": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

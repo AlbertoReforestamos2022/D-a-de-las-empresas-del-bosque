@@ -3,26 +3,62 @@
   "name": "diadelasempresasdelbosque/sobre-nosotros",
   "title": "Sobre Nosotros DEB",
   "category": "deb-theme",
-  "icon": "text",
-  "description": "Sección Sobre Nosotros",
+  "icon": "align-center",
+  "description": "Sección sobre nosotros totalmente personalizable",
   "attributes": {
     "titulo": {
       "type": "string",
       "source": "html",
       "selector": "h2"
     },
-    "descripcion": {
+    "contenido": {
       "type": "string",
       "source": "html",
-      "selector": "p"
-    }, 
-    "bg-color": {
+      "selector": ".contenido"
+    },
+    "backgroundColor": {
       "type": "string",
-      "default": "#ffffff"
-    }, 
-    "text-color": {
+      "default": ""
+    },
+    "tituloColor": {
       "type": "string",
-      "default": "#000000"
+      "default": ""
+    },
+    "contenidoColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloFontFamily": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "contenidoFontFamily": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 48
+    },
+    "contenidoFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "tituloFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "contenidoFontWeight": {
+      "type": "string",
+      "default": "400"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "altoSeccion": {
+      "type": "string",
+      "default": "300"
     }
   }
 }

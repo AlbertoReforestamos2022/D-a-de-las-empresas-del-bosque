@@ -1,0 +1,137 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/list",
+  "title": "Lista DEB",
+  "category": "deb-theme",
+  "icon": "media-document",
+  "description": "Lista de documentos con enlaces para ver/descargar",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Documentos de Interés"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".section-description",
+      "default": "Consulta y descarga nuestros documentos"
+    },
+    "documentos": {
+      "type": "array",
+      "default": [
+        {
+          "nombre": "Documento ejemplo",
+          "descripcion": "Descripción del documento",
+          "archivo": "",
+          "tipoArchivo": "pdf",
+          "fecha": "",
+          "tamano": "",
+          "mostrarIcono": true,
+          "textoBoton": "Ver documento"
+        }
+      ]
+    },
+    "layoutEstilo": {
+      "type": "string",
+      "default": "lista"
+    },
+    "usarVerMas": {
+      "type": "boolean",
+      "default": false
+    },
+    "documentosIniciales": {
+      "type": "number",
+      "default": 3
+    },
+    "documentosPorPagina": {
+      "type": "number",
+      "default": 3
+    },
+    "textoVerMas": {
+      "type": "string",
+      "default": "Ver más documentos"
+    },
+    "textoVerMenos": {
+      "type": "string",
+      "default": "Ver menos"
+    },
+    "verMasButtonBg": {
+      "type": "string",
+      "default": "#6c757d"
+    },
+    "verMasButtonText": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descripcionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "documentoBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "documentoTextColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "documentoHoverBg": {
+      "type": "string",
+      "default": "#f8f9fa"
+    },
+    "buttonBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 40
+    },
+    "descripcionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "documentoTitleFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "abrirEnNuevaVentana": {
+      "type": "boolean",
+      "default": true
+    },
+    "mostrarFecha": {
+      "type": "boolean",
+      "default": true
+    },
+    "mostrarTamano": {
+      "type": "boolean",
+      "default": true
+    },
+    "mostrarDescripcion": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -1,44 +1,76 @@
-/* Timeline Styles */
-.timeline-line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: rgba(20, 184, 20, 0.3);
-}
+.timeline {
+    position: relative;
+    padding: 2rem 0;
 
-.timeline-badge {
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--primary-color, #14b814);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    box-shadow: 0 0 0 8px var(--bg-light, #f6f8f6);
-
-    span {
-        color: white;
-        font-size: 0.75rem;
-        font-weight: bold;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: var(--line-color, #2d6a4f);
     }
 }
 
-[data-bs-theme="dark"] .timeline-badge {
-    box-shadow: 0 0 0 8px rgba(17, 33, 17, 0.5);
+.timeline-item {
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-.card-custom {
-    transition: transform 0.3s ease;
-    border: 1px solid #dee2e6;
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: 5px solid white;
+    border-radius: 50%;
+    top: 2rem;
+    box-shadow: 0 0 0 4px var(--badge-color, #2d6a4f);
+    z-index: 2;
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 45%;
+    position: relative;
+    transition: all 0.3s;
 
     &:hover {
-        transform: translateY(-5px);
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+}
+
+.timeline-content-right {
+    margin-left: auto;
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-marker {
+        left: 20px;
+    }
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
     }
 }

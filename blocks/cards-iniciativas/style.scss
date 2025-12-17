@@ -1,0 +1,86 @@
+.iniciativa-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    overflow: hidden;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+        transition: transform 0.3s;
+    }
+
+    &:hover .card-img-top {
+        transform: scale(1.1);
+    }
+
+    .card-title {
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+// Estilos del Modal
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+
+    .modal-title {
+        font-weight: 700;
+    }
+}
+
+.modal-body {
+    padding: 2rem;
+
+    .modal-content-text {
+        line-height: 1.8;
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        a {
+            color: #2d6a4f;
+            text-decoration: underline;
+
+            &:hover {
+                color: #1b4332;
+            }
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        em {
+            font-style: italic;
+        }
+    }
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1.5rem;
+}

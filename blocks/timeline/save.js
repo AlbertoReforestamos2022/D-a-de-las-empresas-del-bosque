@@ -1,98 +1,63 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-    const { titulo, descripcion, items } = attributes;
+    const { 
+        titulo, 
+        descripcion, 
+        items,
+        backgroundColor,
+        tituloColor,
+        descripcionColor,
+        lineColor,
+        badgeColor,
+        cardTextColor,
+        tituloFontSize,
+        descripcionFontSize,
+        textAlign
+    } = attributes;
 
     const blockProps = useBlockProps.save({
-        className: 'py-5 bg-white',
-        id: 'timeline'
+        className: 'py-5',
+        style: {
+            backgroundColor: backgroundColor
+        }
     });
 
     return (
         <section {...blockProps}>
             <div className="container">
-                <div className="text-center mb-5">
+                <div className="text-center mb-5" style={{ textAlign: textAlign }}>
                     <RichText.Content
                         tagName="h2"
-                        className="display-5 fw-bold"
+                        className="section-title mb-3"
                         value={titulo}
+                        style={{
+                            color: tituloColor,
+                            fontSize: `${tituloFontSize}px`
+                        }}
                     />
                     <RichText.Content
                         tagName="p"
-                        className="lead text-muted"
+                        className="section-description"
                         value={descripcion}
+                        style={{
+                            color: descripcionColor,
+                            fontSize: `${descripcionFontSize}px`
+                        }}
                     />
                 </div>
 
-                <div className="position-relative mt-5">
-                    <div className="timeline-line"></div>
-
+                <div className="timeline" style={{ '--line-color': lineColor, '--badge-color': badgeColor }}>
                     {items.map((item, index) => {
                         const isLeft = index % 2 === 0;
-
                         return (
-                            <div key={index} className="row mb-5 position-relative">
-                                {isLeft && (
-                                    <>
-                                        <div className="col-md-6 text-end pe-md-5">
-                                            <div className="card card-custom shadow-sm">
-                                                {item.image && (
-                                                    <img 
-                                                        src={item.image} 
-                                                        className="card-img-top" 
-                                                        alt=""
-                                                        style={{ height: '200px', objectFit: 'cover' }}
-                                                    />
-                                                )}
-                                                <div className="card-body">
-                                                    <h3 className="h5 fw-bold text-primary-custom">{item.year}</h3>
-                                                    <RichText.Content
-                                                        tagName="p"
-                                                        className="small mb-0"
-                                                        value={item.text}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-6"></div>
-                                    </>
-                                )}
-
-                                <div className="timeline-badge">
-                                    <span></span>
+                            <div key={index} className="timeline-item">
+                                <div className="timeline-marker" style={{ background: badgeColor }}></div>
+                                <div className={`timeline-content ${isLeft ? '' : 'timeline-content-right'}`} style={{ color: cardTextColor }}>
+                                    <div className="timeline-year" style={{ color: badgeColor }}>{item.year}</div>
+                                    {item.imagen && <img src={item.imagen} alt="" className="timeline-img" />}
+                                    <p>{item.texto}</p>
                                 </div>
-
-                                {!isLeft && (
-                                    <>
-                                        <div class="col-md-6"></div>
-
-                                        <div className="col-md-6 ps-md-5">
-                                            <div className="card card-custom shadow-sm">
-                                                {item.image && (
-                                                    <img 
-                                                        src={item.image} 
-                                                        className="card-img-top" 
-                                                        alt=""
-                                                        style={{ height: '200px', objectFit: 'cover' }}
-                                                    />
-                                                )}
-                                                <div className="card-body">
-                                                    <h3 className="h5 fw-bold text-primary-custom">{item.year}</h3>
-                                                    <RichText.Content
-                                                        tagName="p"
-                                                        className="small mb-0"
-                                                        value={item.text}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </>
-
-                                )}
-
-                                {isLeft && <div className="col-md-6"></div>}
-                                {!isLeft && <div className="col-md-6"></div>}
                             </div>
                         );
                     })}

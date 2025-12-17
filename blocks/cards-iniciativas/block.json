@@ -1,0 +1,88 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/iniciativas",
+  "title": "Iniciativas DEB",
+  "category": "deb-theme",
+  "icon": "lightbulb",
+  "description": "Cards con modales para mostrar iniciativas",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Nuestras Iniciativas"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".section-description",
+      "default": "Conoce los proyectos que estamos impulsando"
+    },
+    "iniciativas": {
+      "type": "array",
+      "default": [
+        {
+          "imagen": "",
+          "tamanioImgCard": 50,          
+          "tituloCard": "Iniciativa 1",
+          "tituloModal": "Detalles de la Iniciativa",
+          "contenidoModal": "<p>Descripción completa de la iniciativa...</p>",
+          "textoBoton": "Saber más",
+          "textoCerrar": "Cerrar"
+        }
+      ]
+    },
+    "columnas": {
+      "type": "number",
+      "default": 3
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descripcionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "cardTextColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "buttonBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "modalHeaderBg": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "modalHeaderText": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 40
+    },
+    "descripcionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    }
+  }
+}

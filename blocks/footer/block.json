@@ -24,6 +24,30 @@
         { "label": "Privacy Policy", "url": "#" },
         { "label": "Terms of Service", "url": "#" }
       ]
-    }
+    }, 
+    "logoUno": {
+      "type": "string",
+      "default": "#"
+    },
+    "tamanioLogoUno": {
+      "type": "number", 
+      "default": 130
+    },
+    "logoDos": {
+      "type": "string",
+      "default": "#"
+    },
+    "tamanioLogoDos": {
+      "type": "number", 
+      "default": 130
+    },
+    "logoTres": {
+      "type": "string",
+      "default": "#"
+    },
+    "tamanioLogoTres": {
+      "type": "number", 
+      "default": 130
+    } 
   }
 }

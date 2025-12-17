@@ -1,7 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-    const { siteName, menuItems, showButton, buttonText, buttonUrl } = attributes;
+    const { siteName, menuItems, showButton, buttonText, buttonUrl, logoUno, logoDos, logoTres, tamanioLogoUno, tamanioLogoDos, tamanioLogoTres } = attributes;
 
     const blockProps = useBlockProps.save();
 
@@ -9,8 +9,31 @@ export default function save({ attributes }) {
         <nav {...blockProps} className="navbar navbar-expand-lg navbar-light sticky-top navbar-custom border-bottom">
             <div className="container-xl">
                 <a className="navbar-brand d-flex align-items-center gap-3" href="/">
-                    <h2 className="mb-0 fs-5 fw-bold">{siteName}</h2>
+                    { logoUno ? (
+                        <img src={logoUno} style={{ width: tamanioLogoUno}} className='img-fluid' />
+                    ) : (
+                            <div 
+                                className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                style={{ height: '400px' }}
+                            >
+                                <span className="text-white">Selecciona una imagen</span>
+                            </div>
+                    )}
+
                 </a>
+                <a className="navbar-brand d-flex align-items-center gap-3" href="/">
+                    { logoDos ? (
+                        <img src={logoDos} style={{ width: tamanioLogoDos}} className='img-fluid' />
+                    ) : (
+                            <div 
+                                className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                style={{ height: '400px' }}
+                            >
+                                <span className="text-white">Selecciona una imagen</span>
+                            </div>
+                    )}
+
+                </a>                 
                 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span className="navbar-toggler-icon"></span>
@@ -25,7 +48,21 @@ export default function save({ attributes }) {
                                 </a>
                             </li>
                         ))}
-                    </ul>
+                    </ul>  
+
+                    <a className="navbar-brand d-flex align-items-center gap-3" href="/">
+                        { logoTres ? (
+                            <img src={logoTres} style={{ width: tamanioLogoTres }} className='img-fluid' />
+                        ) : (
+                                <div 
+                                    className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                    style={{ height: '400px' }}
+                                >
+                                    <span className="text-white">Selecciona una imagen</span>
+                                </div>
+                        )}
+
+                    </a>  
                     {showButton && (
                         <a href={buttonUrl} className="btn btn-primary-custom">
                             {buttonText}

@@ -1,52 +1,79 @@
 {
   "apiVersion": 2,
   "name": "diadelasempresasdelbosque/documentos",
-  "title": "Documentos de Interés DEB",
+  "title": "Documentos DEB",
   "category": "deb-theme",
   "icon": "media-document",
-  "description": "Sección de documentos, videos y capacitaciones",
+  "description": "Carrusel de documentos con videos y capacitaciones",
   "attributes": {
     "titulo": {
       "type": "string",
       "source": "html",
       "selector": "h2",
-      "default": "Documentos de interés"
+      "default": "Documentos de Interés"
     },
     "descripcion": {
       "type": "string",
       "source": "html",
-      "selector": ".subtitle-text",
-      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+      "selector": ".section-description",
+      "default": "Accede a recursos útiles"
     },
     "documentos": {
       "type": "array",
+      "default": []
+    },
+    "videos": {
+      "type": "array",
       "default": [
-        {
-          "url": "",
-          "titulo": "Documento 1",
-          "tipo": "pdf"
-        }
+        { "titulo": "Video 1", "url": "#" }
       ]
     },
-    "videosTexto": {
-      "type": "string",
-      "source": "html",
-      "selector": ".videos-text",
-      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    "capacitaciones": {
+      "type": "array",
+      "default": [
+        { "titulo": "Capacitación 1", "url": "#" }
+      ]
     },
-    "videosLink": {
+    "backgroundColor": {
       "type": "string",
-      "default": "#"
+      "default": ""
     },
-    "capacitacionesTexto": {
+    "tituloColor": {
       "type": "string",
-      "source": "html",
-      "selector": ".capacitaciones-text",
-      "default": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+      "default": ""
     },
-    "capacitacionesLink": {
+    "descripcionColor": {
       "type": "string",
-      "default": "#"
+      "default": ""
+    },
+    "cardBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "btnBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "btnTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+
+    "cardTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 40
+    },
+    "descripcionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
     }
   }
 }

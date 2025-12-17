@@ -3,9 +3,9 @@
     "settings": {
         "color": {
             "palette": [
-                {"slug": "primary", "color": "#14b814", "name": "Verde Primario"},
-                {"slug": "secondary", "color": "#14b814", "name": "Background Light"},
-                {"slug": "tertiary", "color": "#14b814", "name": "Background Dark"}
+                {"slug": "primary", "color": "#89bb38", "name": "Verde Primario"},
+                {"slug": "secondary", "color": "#26403d", "name": "Background Dark"},
+                {"slug": "tertiary", "color": "#0092be", "name": "Background Blue"}
             ]
         },
         "typography": {

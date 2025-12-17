@@ -1,139 +1,120 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-    const { titulo, descripcion, documentos, videosTexto, videosLink, capacitacionesTexto, capacitacionesLink } = attributes;
+    const { 
+        titulo, 
+        descripcion, 
+        documentos,
+        videos,
+        capacitaciones,
+        backgroundColor,
+        tituloColor,
+        descripcionColor,
+        cardBgColor,
+        btnBgColor,
+        btnTextColor,
+        cardTextColor,
+        tituloFontSize,
+        descripcionFontSize,
+        textAlign
+    } = attributes;
 
     const blockProps = useBlockProps.save({
         className: 'py-5',
-        id: 'documents'
+        style: {
+            backgroundColor: backgroundColor
+        }
     });
+
+    const carouselId = `docsCarousel-${Math.random().toString(36).substr(2, 9)}`;
 
     return (
         <section {...blockProps}>
             <div className="container">
-                <div className="title-content mb-4">
+                <div className="text-center mb-5" style={{ textAlign: textAlign }}>
                     <RichText.Content
                         tagName="h2"
-                        className="text-center display-5 fw-bold"
+                        className="section-title mb-3"
                         value={titulo}
+                        style={{
+                            color: tituloColor,
+                            fontSize: `${tituloFontSize}px`
+                        }}
                     />
-
-                    <div className="row row-cols-1 row-cols-md-2 justify-content-center">
-                        <div className="col">
-                            <RichText.Content
-                                tagName="p"
-                                className="subtitle-text text-black-50 text-center"
-                                value={descripcion}
-                            />
-                        </div>
-                    </div>
+                    <RichText.Content
+                        tagName="p"
+                        className="section-description"
+                        value={descripcion}
+                        style={{
+                            color: descripcionColor,
+                            fontSize: `${descripcionFontSize}px`
+                        }}
+                    />
                 </div>
 
-                <div className="row row-cols-1 row-cols-lg-2 g-4 p-3 justify-content-center align-items-stretch">
-                    {/* Carrusel de Documentos */}
-                    <div className="col d-flex align-items-stretch">
-                        <div className="card w-100 h-100 bg-transparent border-0 shadow-sm p-2">
-                            <div className="card-header bg-transparent border-0">
-                                <h6>Materiales de interés</h6>
-                            </div>
-
-                            <div className="card-body border-0">
-                                <div id="carruselDocs" className="carousel slide carousel-fade">
-                                    <div className="carousel-inner">
-                                        {documentos.map((doc, index) => (
-                                            <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                                                <div className="ratio ratio-16x9 border rounded shadow-sm iframe-documento">
-                                                    <iframe src={doc.url} frameBorder="0" allowFullScreen title={doc.titulo}></iframe>
-                                                </div>
-                                                <div className="text-center mt-2">
-                                                    <small className="text-muted">{doc.titulo || `Documento ${index + 1}`}</small>
-                                                </div>
-                                                <div className="carousel-caption carrusel-docs-caption">
-                                                    <div className="btn-content">
-                                                        <a href={doc.url} className="btn btn-primary btn-primary-custom" style={{ fontSize: '.7rem' }} target="_blank" rel="noopener noreferrer">
-                                                            Leer documento
-                                                        </a>
-                                                    </div>
-                                                </div>
+                <div className="row g-4">
+                    {/* Carrusel de PDFs */}
+                    {documentos.length > 0 && (
+                        <div className="col-lg-6">
+                            <div id={carouselId} className="carousel slide" data-bs-ride="carousel">
+                                <div className="carousel-inner">
+                                    {documentos.map((doc, index) => (
+                                        <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                                            <div className="document-card p-4 text-center" style={{ background: cardBgColor, color: cardTextColor, borderRadius: '15px' }}>
+                                                <i className="fas fa-file-pdf fa-3x mb-3"></i>
+                                                <h5>{doc.titulo}</h5>
+                                                <a href={doc.url} className="btn btn-light mt-3" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: btnBgColor, color:btnTextColor }}>
+                                                    <i className="fas fa-download me-2"></i>Ver documento
+                                                </a>
                                             </div>
-                                        ))}
-                                    </div>
-
-                                    <button className="carousel-control-prev" type="button" data-bs-target="#carruselDocs" data-bs-slide="prev">
-                                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span className="visually-hidden">Anterior</span>
-                                    </button>
-
-                                    <button className="carousel-control-next" type="button" data-bs-target="#carruselDocs" data-bs-slide="next">
-                                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span className="visually-hidden">Siguiente</span>
-                                    </button>
-                                </div>
-
-
-
-                                <div className="carousel-indicators carrusel-docs-indicators mt-3">
-                                    {documentos.map((_, index) => (
-                                        <button 
-                                            key={index}
-                                            type="button" 
-                                            data-bs-target="#carruselDocs" 
-                                            data-bs-slide-to={index} 
-                                            className={index === 0 ? 'active' : ''}
-                                            aria-label={`Slide ${index + 1}`}
-                                        ></button>
+                                        </div>
                                     ))}
                                 </div>
+                                {documentos.length > 1 && (
+                                    <>
+                                        <button className="carousel-control-prev" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="prev">
+                                            <span class="p-2 rounded-3" aria-hidden="true" style={{ backgroundColor: btnBgColor }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                                </svg>
+                                            </span>
+                                            <span className="visually-hidden">Anterior</span>
+                                        </button>
+                                        <button className="carousel-control-next" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="next">
+                                            
+                                            <span className="p-2 rounded-3" aria-hidden="true" style={{ backgroundColor: btnBgColor }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                                </svg>                                                
+                                            </span>
+                                            <span className="visually-hidden">Siguiente</span>
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
+                    )}
+
+                    {/* Videos */}
+                    <div className="col-lg-3" style={{ backgroundColor:  cardBgColor,  color: cardTextColor}}>
+                        <h4 className="mb-3">Videos</h4>
+                        {videos.map((video, index) => (
+                            <a key={index} href={video.url} className="document-card mb-3 p-3 d-block text-center text-decoration-none" style={{ background: btnBgColor, color:btnTextColor, borderRadius: '10px' }}>
+                                <i className="fas fa-play-circle fa-2x mb-2"></i>
+                                <p className="mb-0">{video.titulo}</p>
+                            </a>
+                        ))}
                     </div>
 
-                    {/* Videos y Capacitaciones */}
-                    <div className="col d-flex align-items-stretch">
-                        <div className="row row-cols-1 gap-3 w-100">
-                            {/* Videos */}
-                            <div className="col d-flex align-items-stretch">
-                                <div className="card w-100 h-100 bg-transparent border-0 shadow-sm p-2">
-                                    <div className="card-header bg-transparent border-0">
-                                        <h6>Videos</h6>
-                                    </div>
-                                    <div className="card-body border-0">
-                                        <RichText.Content
-                                            tagName="p"
-                                            className="videos-text text-black-50"
-                                            value={videosTexto}
-                                        />
-                                    </div>
-
-                                    <div className="card-footer border-0 bg-transparent">
-                                        <div className="btn-content">
-                                            <a href={videosLink} className="btn btn-primary-custom">Saber más</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Capacitaciones */}
-                            <div className="col d-flex align-items-stretch">
-                                <div className="card w-100 h-100 bg-transparent border-0 shadow-sm p-2">
-                                    <div className="card-header bg-transparent border-0">
-                                        <h6>Capacitaciones</h6>
-                                    </div>
-                                    <div className="card-body border-0">
-                                        <RichText.Content
-                                            tagName="p"
-                                            className="capacitaciones-text text-black-50"
-                                            value={capacitacionesTexto}
-                                        />
-                                    </div>
-                                    <div className="card-footer border-0 bg-transparent">
-                                        <div className="btn-content">
-                                            <a href={capacitacionesLink} className="btn btn-primary-custom">Saber más</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    {/* Capacitaciones */}
+                    <div className="col-lg-3" style={{ backgroundColor:  cardBgColor,  color: cardTextColor}}>
+                        <h4 className="mb-3">Capacitaciones</h4>
+                        {capacitaciones.map((cap, index) => (
+                            <a key={index} href={cap.url} className="document-card mb-3 p-3 d-block text-center text-decoration-none" style={{ background: btnBgColor, color:btnTextColor, borderRadius: '10px' }}>
+                                <i className="fas fa-graduation-cap fa-2x mb-2"></i>
+                                <p className="mb-0">{cap.titulo}</p>
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

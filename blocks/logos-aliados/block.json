@@ -1,0 +1,70 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/logos-aliados",
+  "title": "Logos Aliados DEB",
+  "category": "deb-theme",
+  "icon": "images-alt",
+  "description": "Grid de logos de aliados/patrocinadores",
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2",
+      "default": "Nuestros Aliados"
+    },
+    "descripcion": {
+      "type": "string",
+      "source": "html",
+      "selector": ".section-description",
+      "default": "Empresas que nos apoyan"
+    },
+    "logos": {
+      "type": "array",
+      "default": []
+    },
+    "columnas": {
+      "type": "number",
+      "default": 4
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descripcionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 40
+    },
+    "descripcionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "logoMaxHeight": {
+      "type": "number",
+      "default": 80
+    },
+    "logoMaxWidth": {
+      "type": "number",
+      "default": 200
+    },
+    "logoObjectFit": {
+      "type": "string",
+      "default": "contain"
+    }
+  }
+}

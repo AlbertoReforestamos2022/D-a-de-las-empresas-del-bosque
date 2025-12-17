@@ -1,0 +1,73 @@
+.mapa-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+.contacto-card {
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    height: 100%;
+
+    h3 {
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .contacto-item {
+        display: flex;
+        align-items: flex-start;
+        font-size: 1rem;
+        line-height: 1.6;
+
+        i {
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #2d6a4f;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .btn-whatsapp {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        i {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 991px) {
+    .mapa-container {
+        margin-bottom: 2rem;
+    }
+}

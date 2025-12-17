@@ -4,7 +4,7 @@
   "title": "Texto + Imagen DEB",
   "category": "deb-theme",
   "icon": "align-pull-left",
-  "description": "Sección de 2 columnas con texto e imagen",
+  "description": "Sección con texto e imagen lado a lado",
   "attributes": {
     "titulo": {
       "type": "string",
@@ -14,7 +14,7 @@
     "contenido": {
       "type": "string",
       "source": "html",
-      "selector": ".contenido-texto"
+      "selector": ".contenido"
     },
     "imagen": {
       "type": "string",
@@ -22,7 +22,7 @@
     },
     "imagenAlt": {
       "type": "string",
-      "default": ""
+      "default": "Imagen"
     },
     "imagenPosicion": {
       "type": "string",
@@ -34,11 +34,51 @@
     },
     "buttonText": {
       "type": "string",
-      "default": "Saber más"
+      "default": "Conoce Más"
     },
     "buttonUrl": {
       "type": "string",
       "default": "#"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "tituloColor": {
+      "type": "string",
+      "default": ""
+    },
+    "contenidoColor": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBgColor": {
+      "type": "string",
+      "default": "#2d6a4f"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "tituloFontSize": {
+      "type": "number",
+      "default": 36
+    },
+    "contenidoFontSize": {
+      "type": "number",
+      "default": 16
+    },
+    "tituloFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "contenidoFontWeight": {
+      "type": "string",
+      "default": "400"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "left"
     }
   }
 }

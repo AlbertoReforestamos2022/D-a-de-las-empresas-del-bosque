@@ -1,0 +1,39 @@
+{
+  "apiVersion": 2,
+  "name": "diadelasempresasdelbosque/hero-carrusel",
+  "title": "Hero Carousel DEB",
+  "category": "deb-theme",
+  "icon": "images-alt2",
+  "description": "Hero con carrusel de imágenes",
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": [
+        {
+          "imagen": "",
+          "titulo": "Día de las Empresas del Bosque",
+          "descripcion": "Conectando empresas forestales con un futuro sostenible",
+          "showButton": true,
+          "buttonText": "Conoce Más",
+          "buttonUrl": "#about"
+        }
+      ]
+    },
+    "showControls": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIndicators": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "interval": {
+      "type": "number",
+      "default": 5000
+    }
+  }
+}

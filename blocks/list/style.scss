@@ -1,0 +1,284 @@
+// ... estilos anteriores ...
+
+// ============================================
+// FUNCIONALIDAD "VER MÁS"
+// ============================================
+.documento-oculto {
+    display: none!important;
+}
+
+.btn-ver-mas {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    i {
+        transition: transform 0.3s;
+    }
+
+    &.expandido i {
+        transform: rotate(180deg);
+    }
+}
+
+// ============================================
+// VISTA DE LISTA (Default)
+// ============================================
+.documentos-lista {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .documento-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .documento-icon {
+            flex-shrink: 0;
+            width: 60px;
+            text-align: center;
+        }
+
+        .documento-info {
+            flex: 1;
+
+            h5 {
+                margin: 0 0 0.5rem 0;
+                font-weight: 700;
+            }
+
+            .documento-descripcion {
+                margin: 0 0 0.5rem 0;
+                font-size: 0.9rem;
+                opacity: 0.8;
+                line-height: 1.5;
+            }
+
+            .documento-meta {
+                display: flex;
+                gap: 1rem;
+                font-size: 0.85rem;
+                opacity: 0.7;
+
+                span {
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        margin-right: 0.3rem;
+                    }
+                }
+            }
+        }
+
+        .documento-action {
+            flex-shrink: 0;
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: all 0.3s;
+                border: none;
+                white-space: nowrap;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+
+            .documento-info {
+                .documento-meta {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+            }
+
+            .documento-action {
+                width: 100%;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// ============================================
+// VISTA DE TABLA
+// ============================================
+.documentos-tabla {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    thead {
+        background: #f8f9fa;
+
+        th {
+            font-weight: 700;
+            border-bottom: 2px solid #dee2e6;
+            padding: 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    tbody {
+        tr {
+            transition: background 0.2s;
+
+            &:hover {
+                background: #f8f9fa;
+            }
+
+            td {
+                padding: 1.2rem 1rem;
+                vertical-align: middle;
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+    }
+
+    .btn {
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+// ============================================
+// VISTA DE CARDS
+// ============================================
+.documento-card {
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .documento-card-icon {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    h5 {
+        margin: 0 0 1rem 0;
+        font-weight: 700;
+    }
+
+    .documento-descripcion {
+        margin: 0 0 1rem 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        line-height: 1.6;
+        flex: 1;
+    }
+
+    .documento-meta {
+        font-size: 0.85rem;
+        opacity: 0.7;
+        margin-bottom: 1rem;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+// ============================================
+// ICONOS POR TIPO DE ARCHIVO
+// ============================================
+.fa-file-pdf {
+    color: #dc3545;
+}
+
+.fa-file-word {
+    color: #2b579a;
+}
+
+.fa-file-excel {
+    color: #217346;
+}
+
+.fa-file-powerpoint {
+    color: #d24726;
+}
+
+.fa-file-image {
+    color: #6f42c1;
+}
+
+.fa-file-video {
+    color: #fd7e14;
+}
+
+.fa-file-audio {
+    color: #20c997;
+}
+
+.fa-file-archive {
+    color: #6c757d;
+}
+
+.fa-file-alt {
+    color: #0d6efd;
+}
+
+.fa-file {
+    color: #adb5bd;
+}

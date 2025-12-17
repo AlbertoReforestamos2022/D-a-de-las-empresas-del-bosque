@@ -1,9 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, Button, ToggleControl } from '@wordpress/components';
+import { useBlockProps, MediaUpload, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl, Button, ToggleControl, RangeControl } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { siteName, menuItems, showButton, buttonText, buttonUrl } = attributes;
+    const { siteName, menuItems, showButton, buttonText, buttonUrl, logoUno, logoDos, logoTres, tamanioLogoUno, tamanioLogoDos, tamanioLogoTres } = attributes;
 
     const blockProps = useBlockProps({
         className: ''
@@ -37,6 +37,148 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <PanelBody title={__('Configuración del Navbar', 'diadelasempresasdelbosque')}>
+                    {/* Logo 1  */}
+                    <PanelBody title={__('Logo principal', 'diadelasempresasdelbosque')} initialOpen={true}>
+                        <MediaUpload
+                            onSelect={(media) => {
+                                setAttributes({ 
+                                    logoUno: media.url
+                                });
+                            }}
+                            allowedTypes={['image']}
+                            value={logoUno}
+                            render={({ open }) => (
+                                <div>
+                                    {logoUno ? (
+                                        <div>
+                                            <img 
+                                                src={logoUno} 
+                                                style={{ width: '100%', marginBottom: '8px', borderRadius: '8px' }} 
+                                            />
+                                            <div className="d-flex gap-2">
+                                                <Button onClick={open} variant="secondary">
+                                                    Cambiar imagen
+                                                </Button>
+                                                <Button 
+                                                    onClick={() => setAttributes({ logoUno: '' })}
+                                                    isDestructive
+                                                >
+                                                    Quitar imagen
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Button onClick={open} variant="primary">
+                                            Seleccionar imagen
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
+                        />
+
+                        <RangeControl
+                            label={__('Tamaño logo principal (px)', 'diadelasempresasdelbosque')}
+                            value={tamanioLogoUno}
+                            onChange={(value) => setAttributes({ tamanioLogoUno: value })}
+                            min={10}
+                            max={500}
+                        />
+                    </PanelBody>   
+
+                    {/* Logo 2  */}
+                    <PanelBody title={__('Logo 2', 'diadelasempresasdelbosque')} initialOpen={true}>
+                        <MediaUpload
+                            onSelect={(media) => {
+                                setAttributes({ 
+                                    logoDos: media.url
+                                });
+                            }}
+                            allowedTypes={['image']}
+                            value={logoDos}
+                            render={({ open }) => (
+                                <div>
+                                    {logoDos ? (
+                                        <div>
+                                            <img 
+                                                src={logoDos} 
+                                                style={{ width: '100%', marginBottom: '8px', borderRadius: '8px' }} 
+                                            />
+                                            <div className="d-flex gap-2">
+                                                <Button onClick={open} variant="secondary">
+                                                    Cambiar imagen
+                                                </Button>
+                                                <Button 
+                                                    onClick={() => setAttributes({ logoDos: '' })}
+                                                    isDestructive
+                                                >
+                                                    Quitar imagen
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Button onClick={open} variant="primary">
+                                            Seleccionar imagen
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
+                        />
+                        <RangeControl
+                            label={__('Tamaño logo dos (px)', 'diadelasempresasdelbosque')}
+                            value={tamanioLogoDos}
+                            onChange={(value) => setAttributes({ tamanioLogoDos: value })}
+                            min={10}
+                            max={500}
+                        />
+                    </PanelBody>  
+                   
+                    {/* Logo 3  */}
+                    <PanelBody title={__('Logo 3', 'diadelasempresasdelbosque')} initialOpen={true}>
+                        <MediaUpload
+                            onSelect={(media) => {
+                                setAttributes({ 
+                                    logoTres: media.url
+                                });
+                            }}
+                            allowedTypes={['image']}
+                            value={logoTres}
+                            render={({ open }) => (
+                                <div>
+                                    {logoTres ? (
+                                        <div>
+                                            <img 
+                                                src={logoTres} 
+                                                style={{ width: '100%', marginBottom: '8px', borderRadius: '8px' }} 
+                                            />
+                                            <div className="d-flex gap-2">
+                                                <Button onClick={open} variant="secondary">
+                                                    Cambiar imagen
+                                                </Button>
+                                                <Button 
+                                                    onClick={() => setAttributes({ logoTres: '' })}
+                                                    isDestructive
+                                                >
+                                                    Quitar imagen
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <Button onClick={open} variant="primary">
+                                            Seleccionar imagen
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
+                        />
+                        <RangeControl
+                            label={__('Tamaño logo dos (px)', 'diadelasempresasdelbosque')}
+                            value={tamanioLogoTres}
+                            onChange={(value) => setAttributes({ tamanioLogoTres: value })}
+                            min={10}
+                            max={500}
+                        />                        
+                    </PanelBody>  
+
                     <TextControl
                         label={__('Nombre del sitio', 'diadelasempresasdelbosque')}
                         value={siteName}
@@ -129,9 +271,33 @@ export default function Edit({ attributes, setAttributes }) {
             <div {...blockProps}>
                 <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar-custom border-bottom">
                     <div className="container-xl">
-                        <a className="navbar-brand d-flex align-items-center gap-3" href="/">
+                        <a className="navbar-brand d-flex align-items-center gap-3" href="#">
+                            { logoUno ? (
+                                <img src={logoUno} style={{ width: tamanioLogoUno}} className='img-fluid' />
+                            ) : (
+                                    <div 
+                                        className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                        style={{ height: '400px' }}
+                                    >
+                                        <span className="text-white">Selecciona una imagen</span>
+                                    </div>
+                            )}
                             <h2 className="mb-0 fs-5 fw-bold">{siteName}</h2>
                         </a>
+
+                        <a className="navbar-brand d-flex align-items-center gap-3" href="/">
+                            { logoDos ? (
+                                <img src={logoDos} style={{ width: tamanioLogoDos }} className='img-fluid' />
+                            ) : (
+                                    <div 
+                                        className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                        style={{ height: '400px' }}
+                                    >
+                                        <span className="text-white">Selecciona una imagen</span>
+                                    </div>
+                            )}
+
+                        </a> 
                         
                         <button className="navbar-toggler" type="button">
                             <span className="navbar-toggler-icon"></span>
@@ -147,6 +313,21 @@ export default function Edit({ attributes, setAttributes }) {
                                     </li>
                                 ))}
                             </ul>
+    
+                            <a className="navbar-brand d-flex align-items-center gap-3" href="/">
+                                { logoTres ? (
+                                    <img src={logoTres} style={{ width: tamanioLogoTres}} className='img-fluid' />
+                                ) : (
+                                        <div 
+                                            className="bg-secondary rounded d-flex align-items-center justify-content-center" 
+                                            style={{ height: '400px' }}
+                                        >
+                                            <span className="text-white">Selecciona una imagen</span>
+                                        </div>
+                                )}
+
+                            </a>                                                        
+
                             {showButton && (
                                 <a href={buttonUrl} className="btn btn-primary-custom">
                                     {buttonText}

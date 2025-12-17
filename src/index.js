@@ -6,6 +6,11 @@ import '../blocks/galeria-uno';
 import '../blocks/faqs';
 import '../blocks/documents'; 
 import '../blocks/carousel'; // 
-import '../blocks/cards-img'; // 
+import '../blocks/logos-aliados'; // 
 import '../blocks/texto-imagen'; // 
+import '../blocks/hero-carrusel';
+import '../blocks/cards-iniciativas'; //  
+import '../blocks/cards-enlaces'; //
+import '../blocks/list';
+import '../blocks/contacto';
 import '../blocks/footer';
