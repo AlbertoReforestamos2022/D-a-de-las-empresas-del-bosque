@@ -1,0 +1,108 @@
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+
+        img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            opacity: 1;
+        }
+    }
+
+    img {
+        transition: transform 0.5s;
+    }
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    h5 {
+        margin: 0;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+// Tabs personalizados
+.nav-item-gallery {
+    .nav-link {
+        padding: 0.75rem 1.5rem;
+        margin: 0 0.25rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+        color: var(--tab-inactive-color, #6c757d);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        &.active {
+            background-color: var(--tab-active-bg, #2e7fb1) !important;
+            color: #ffffff !important;
+            border-color: var(--tab-active-bg, #2e7fb1) !important;
+            box-shadow: 0 5px 20px rgba(46, 127, 177, 0.3);
+        }
+    }
+}
+
+// FUNCIONALIDAD "VER MÁS"
+.gallery-item-hidden {
+    display: none !important;
+}
+
+.btn-ver-mas-galeria {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(46, 127, 177, 0.4);
+    }
+
+    i {
+        transition: transform 0.3s;
+    }
+
+    &.expandido i {
+        transform: rotate(180deg);
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 250px !important;
+    }
+
+    .nav-item-gallery .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}

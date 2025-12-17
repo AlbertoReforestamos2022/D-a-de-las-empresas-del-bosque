@@ -238,3 +238,137 @@ function deb_documentos_ver_mas_script() {
     <?php
 }
 add_action('wp_footer', 'deb_documentos_ver_mas_script');
+
+// Script para funcionalidad "Ver más" en Galería con Tabs
+function jef_galeria_ver_mas_script() {
+    ?>
+    <script>
+    (function() {
+        'use strict';
+        
+        function initGaleriaVerMas() {
+            const botonesVerMas = document.querySelectorAll('.btn-ver-mas-galeria');
+            
+            if (botonesVerMas.length === 0) {
+                return;
+            }
+            
+            console.log('Botones "Ver más" en galería encontrados:', botonesVerMas.length);
+            
+            botonesVerMas.forEach((boton) => {
+                // Estado inicial
+                boton.mostradosActual = parseInt(boton.dataset.inicial);
+                boton.expandido = false;
+                
+                boton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const inicial = parseInt(this.dataset.inicial);
+                    const porCarga = parseInt(this.dataset.porCarga);
+                    const total = parseInt(this.dataset.total);
+                    const textoMas = this.dataset.textoMas;
+                    const textoMenos = this.dataset.textoMenos;
+                    const galleryId = this.dataset.galleryId;
+                    
+                    console.log('Click en botón - Gallery ID:', galleryId);
+                    
+                    const container = document.querySelector(`[data-gallery-container="${galleryId}"]`);
+                    
+                    if (!container) {
+                        console.error('Container no encontrado:', galleryId);
+                        return;
+                    }
+                    
+                    const items = container.querySelectorAll('[data-img-index]');
+                    console.log('Items encontrados:', items.length);
+                    
+                    if (this.expandido) {
+                        // COLAPSAR
+                        console.log('Colapsando...');
+                        
+                        items.forEach((item, index) => {
+                            if (index >= inicial) {
+                                item.classList.add('gallery-item-hidden');
+                            }
+                        });
+                        
+                        this.innerHTML = textoMas + ' <i class="fas fa-chevron-down ms-2"></i>';
+                        this.expandido = false;
+                        this.mostradosActual = inicial;
+                        
+                        // Scroll al tab activo
+                        const tabPane = container.closest('.tab-pane');
+                        if (tabPane) {
+                            tabPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        
+                    } else {
+                        // EXPANDIR
+                        const nuevosHasta = Math.min(this.mostradosActual + porCarga, total);
+                        
+                        console.log('Expandiendo de', this.mostradosActual, 'hasta', nuevosHasta);
+                        
+                        for (let i = this.mostradosActual; i < nuevosHasta; i++) {
+                            if (items[i]) {
+                                console.log('Mostrando item', i);
+                                items[i].classList.remove('gallery-item-hidden');
+                            }
+                        }
+                        
+                        this.mostradosActual = nuevosHasta;
+                        
+                        if (nuevosHasta >= total) {
+                            this.innerHTML = textoMenos + ' <i class="fas fa-chevron-up ms-2"></i>';
+                            this.expandido = true;
+                        } else {
+                            const restantes = total - nuevosHasta;
+                            this.innerHTML = textoMas + ' (' + restantes + ' restantes) <i class="fas fa-chevron-down ms-2"></i>';
+                        }
+                    }
+                    
+                    console.log('Estado actual - Mostrados:', this.mostradosActual, 'Expandido:', this.expandido);
+                });
+            });
+        }
+        
+        // Ejecutar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGaleriaVerMas);
+        } else {
+            initGaleriaVerMas();
+        }
+        
+        // Reinicializar cuando se cambie de tab
+        document.addEventListener('shown.bs.tab', function (event) {
+            console.log('Tab cambiado, reinicializando botones...');
+            
+            // Resetear todos los botones
+            const botonesVerMas = document.querySelectorAll('.btn-ver-mas-galeria');
+            botonesVerMas.forEach((boton) => {
+                const inicial = parseInt(boton.dataset.inicial);
+                const textoMas = boton.dataset.textoMas;
+                const galleryId = boton.dataset.galleryId;
+                
+                boton.mostradosActual = inicial;
+                boton.expandido = false;
+                boton.innerHTML = textoMas + ' <i class="fas fa-chevron-down ms-2"></i>';
+                
+                // Ocultar imágenes que deberían estar ocultas
+                const container = document.querySelector(`[data-gallery-container="${galleryId}"]`);
+                if (container) {
+                    const items = container.querySelectorAll('[data-img-index]');
+                    items.forEach((item, index) => {
+                        if (index >= inicial) {
+                            item.classList.add('gallery-item-hidden');
+                        } else {
+                            item.classList.remove('gallery-item-hidden');
+                        }
+                    });
+                }
+            });
+        });
+    })();
+    </script>
+    <?php
+}
+add_action('wp_footer', 'jef_galeria_ver_mas_script');

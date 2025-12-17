@@ -2,7 +2,7 @@ import '../blocks/header-navbar';
 import '../blocks/hero';
 import '../blocks/sobre-nosotros';
 import '../blocks/timeline'; 
-import '../blocks/galeria-uno'; 
+import '../blocks/galeria-tabs'; 
 import '../blocks/faqs';
 import '../blocks/documents'; 
 import '../blocks/carousel'; // 
