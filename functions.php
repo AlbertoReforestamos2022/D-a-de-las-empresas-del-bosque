@@ -240,7 +240,7 @@ function deb_documentos_ver_mas_script() {
 add_action('wp_footer', 'deb_documentos_ver_mas_script');
 
 // Script para funcionalidad "Ver más" en Galería con Tabs
-function jef_galeria_ver_mas_script() {
+function deb_galeria_ver_mas_script() {
     ?>
     <script>
     (function() {
@@ -371,4 +371,4 @@ function jef_galeria_ver_mas_script() {
     </script>
     <?php
 }
-add_action('wp_footer', 'jef_galeria_ver_mas_script');
+add_action('wp_footer', 'deb_galeria_ver_mas_script');
