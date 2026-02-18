@@ -220,7 +220,7 @@ function deb_enqueue_bootstrap() {
 add_action( 'wp_enqueue_scripts', 'deb_enqueue_bootstrap' );
 ```
 
-### Encolar Bootstrap CDN 
+#### Encolar Bootstrap CDN 
 ```php
 
 # Agregar Bootstrap desde CDN
@@ -400,7 +400,8 @@ Sigue estos pasos para agregar un nuevo bloque al tema:
 
 ### Integración con Bootstrap
 
-Este tema usa Bootstrap 5 para los componentes de JavaScript como el Carousel. Es importante entender cómo coexisten Bootstrap y los estilos de los bloques.
+Esta es una guía rápida para intergrar Bootstrap 5 nativamente al proyecto SIN CDN
+Este tema usa Bootstrap 5 para los componentes de JavaScript. Es importante entender cómo coexisten Bootstrap y los estilos de los bloques.
 
 ### Cómo Cargar Bootstrap
 
