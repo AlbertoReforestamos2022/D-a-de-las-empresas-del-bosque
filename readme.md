@@ -13,7 +13,7 @@
 
 ---
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Introducción](#-introducción)
 - [Requisitos](#-requisitos)
@@ -445,7 +445,7 @@ export default function save({ attributes }) {
 
 | Nombre | Slug | Descripción | Estado |
 |--------|------|-------------|--------|
-| **Hero Carousel** | `deb/hero-carousel` | Carrusel de imágenes con texto y botones opcionales. Usa Bootstrap Carousel. | ✅ Listo |
+| **Hero Carousel** | `deb/hero-carousel` | Carrusel de imágenes con texto y botones opcionales. Usa Bootstrap Carousel. |  Listo |
 
 > 💡 **Nota:** Esta tabla se irá actualizando conforme se agreguen nuevos bloques al tema.
 
@@ -501,7 +501,7 @@ build/
 
 ---
 
-## 📚 Referencias
+## Referencias
 
 - [Documentación oficial de Gutenberg](https://developer.wordpress.org/block-editor/)
 - [Referencia de @wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts)
